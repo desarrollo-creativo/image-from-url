@@ -11,7 +11,6 @@ require('dotenv').config()
 const server = http.createServer(app);
 const filesDir = './public';
 const URL = process.env.URL;
-const PORT = process.env.PORT;
 
 app.use(bodyParser.json());
 app.use(express.static('public'));
@@ -63,7 +62,7 @@ app.get('/generate', async (req, res) => {
     const date = new Date().toJSON();
     registerLog('generate.log', `{"url": "${website_url}", "date": "${date}"}\n`);
     
-    res.json({url: `${URL}:${PORT}/${fileName}.png`});
+    res.json({url: `${URL}:3000/${fileName}.png`});
 });
 
 function registerLog(file, text) {
@@ -78,6 +77,6 @@ function registerLog(file, text) {
     }
 }
 
-server.listen(PORT, () => {
-    console.log(`App escuchando el puerto ${PORT}`)
+server.listen(3000, () => {
+    console.log(`App escuchando el puerto 3000`)
 });

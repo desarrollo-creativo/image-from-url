@@ -12,7 +12,6 @@ cp .env-example .env
 
 # Edit environment variables
 URL="localhost" # your domain
-PORT=3000 # your port
 ```
 
 ## Start
