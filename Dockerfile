@@ -1,6 +1,16 @@
 # Usar la imagen oficial de Node.js (versión 20.18.0, la más reciente a junio 2025)
 FROM node:20.18.0-slim
 
+# Instalar dependencias de Puppeteer
+RUN apt-get update && apt-get install -y \
+    libglib2.0-0 \
+    libnss3 \
+    libgtk-3-0 \
+    libgbm1 \
+    libasound2 \
+    --no-install-recommends && \
+    rm -rf /var/lib/apt/lists/*
+
 # Establecer directorio de trabajo
 WORKDIR /app
 

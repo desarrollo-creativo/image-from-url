@@ -28,7 +28,10 @@ app.get('/', async (req, res) => {
 });
 
 app.get('/generate', async (req, res) => {
-    const browser = await puppeteer.launch();
+    const browser = await puppeteer.launch({
+      headless: true, // Asegúrate de usar modo headless
+      args: ['--no-sandbox', '--disable-setuid-sandbox'],
+    });
     const page = await browser.newPage();
     await page.setViewport({
         width: 512,
