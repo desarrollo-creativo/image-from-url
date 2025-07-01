@@ -11,7 +11,7 @@ npm i
 cp .env-example .env
 
 # Edit environment variables
-URL="localhost" # your domain
+URL="localhost:3000" # your domain
 ```
 
 ## Start
